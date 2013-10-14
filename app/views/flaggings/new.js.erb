@@ -1,0 +1,2 @@
+$('body').append('<%=escape_javascript(render('flaggings/modal_form'))%>');
+$('#<%=@flag.resource_type%>-<%=@flag.resource_id%>').modal('show');

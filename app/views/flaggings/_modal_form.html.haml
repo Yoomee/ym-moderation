@@ -1,0 +1,14 @@
+.flag-modal.modal.hide.fade{:id => "#{@flag.resource_type}-#{@flag.resource_id}"}
+  =form_for(@flagging) do |form|
+    .modal-header
+      %a.close{:data => {:dismiss => 'modal'}}
+        %icon.icon-remove-sign
+      %h4 New flag
+    .modal-body
+      =form.text_area :description
+      -if false #current_user
+        =form.hidden_field :user_id, :value => current_user.id
+      -else
+        =form.text_field :email
+    .modal-footer
+      =form.submit 'Report', :class => 'btn'
