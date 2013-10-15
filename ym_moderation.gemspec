@@ -32,6 +32,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'listen', '~> 1.3.1'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'capybara-webkit'
-  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'database_cleaner', '1.2.0'
 
 end

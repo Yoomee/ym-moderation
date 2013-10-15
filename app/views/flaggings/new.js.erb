@@ -1,2 +1,6 @@
-$('body').append('<%=escape_javascript(render('flaggings/modal_form'))%>');
+if ($('#<%=@flag.resource_type%>-<%=@flag.resource_id%>').length) {
+  $('#<%=@flag.resource_type%>-<%=@flag.resource_id%>').replaceWith('<%=escape_javascript(render('flaggings/modal_form'))%>');
+} else {
+  $('body').append('<%=escape_javascript(render('flaggings/modal_form'))%>');
+}
 $('#<%=@flag.resource_type%>-<%=@flag.resource_id%>').modal('show');
