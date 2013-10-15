@@ -1,4 +1,5 @@
 require 'ym_core'
+require 'ym_users'
 require "ym_moderation/engine"
 
 module YmModeration
