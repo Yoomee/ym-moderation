@@ -1,5 +1,5 @@
-class Flagging < ActiveRecord::Base
+class FlaggingCategory < ActiveRecord::Base
 
-  include YmModeration::Flagging
+  include YmModeration::FlaggingCategory
 
 end

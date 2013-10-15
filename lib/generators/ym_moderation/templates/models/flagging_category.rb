@@ -1,4 +1,4 @@
-module FlaggingCategory < ActiveRecord::Base
+class FlaggingCategory < ActiveRecord::Base
 
   include YmModeration::FlaggingCategory
 

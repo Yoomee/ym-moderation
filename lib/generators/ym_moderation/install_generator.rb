@@ -18,7 +18,7 @@ module YmModeration
         copy_file "controllers/flaggings_controller.rb", "app/controllers/flaggings_controller.rb"
         copy_file "models/flag.rb", "app/models/flag.rb"
         copy_file "models/flagging.rb", "app/models/flagging.rb"
-        copy_file "models/flagging.rb", "app/models/flagging_category.rb"
+        copy_file "models/flagging_category.rb", "app/models/flagging_category.rb"
 
         # Migrations must go last
         Dir[File.dirname(__FILE__) + '/templates/migrations/*.rb'].each do |file_path|
