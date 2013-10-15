@@ -7,6 +7,7 @@
     =semantic_form_for(@flagging, :remote => true) do |form|
       =hidden_field_tag :resource_type, @flag.resource_type
       =hidden_field_tag :resource_id, @flag.resource_id
+      =form.input :category, :as => :select, :collection => FlaggingCategory.order(:name), :prompt => 'Please select...'
       =form.input :description, :label => 'Description of the problem'
       -if current_user
         =form.hidden_field :user_id, :value => current_user.id
