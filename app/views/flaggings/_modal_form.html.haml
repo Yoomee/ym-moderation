@@ -4,13 +4,12 @@
       %icon.icon-remove-sign
     %h4 New flag
   .modal-body
-    =form_for(@flagging, :remote => true) do |form|
+    =semantic_form_for(@flagging, :remote => true) do |form|
       =hidden_field_tag :resource_type, @flag.resource_type
       =hidden_field_tag :resource_id, @flag.resource_id
-      =form.text_area :description
-      -if false #current_user
+      =form.input :description, :label => 'Description of the problem'
       -if current_user
         =form.hidden_field :user_id, :value => current_user.id
       -else
-        =form.text_field :email
-      =form.submit 'Report content', :class => 'btn'
+        =form.input :email, :hint => "if you'd like us to contact you about this issue"
+      =form.action :submit, :label => 'Report content', :button_html => { :class => 'btn btn-primary' }
