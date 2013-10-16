@@ -1,0 +1,13 @@
+-if @flags.empty?
+  %p There are no unresolved items at the moment.
+-else
+  %table.table.table-hover
+    %tbody
+      -@flags.each do |flag|
+        %tr
+          %td.span2
+            %strong=flag.resource
+          %td.span9
+            %i=truncate(flag.resource_text, :length => 300)
+          %td.span1.right
+            %span.badge=flag.flaggings.count

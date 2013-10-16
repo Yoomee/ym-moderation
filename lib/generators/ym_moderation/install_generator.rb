@@ -15,6 +15,7 @@ module YmModeration
         # end
         # try_migration_template "migrations/create_pages.rb", "db/migrate/create_pages"
 
+        copy_file "controllers/flags_controller.rb", "app/controllers/flags_controller.rb"
         copy_file "controllers/flaggings_controller.rb", "app/controllers/flaggings_controller.rb"
         copy_file "models/flag.rb", "app/models/flag.rb"
         copy_file "models/flagging.rb", "app/models/flagging.rb"

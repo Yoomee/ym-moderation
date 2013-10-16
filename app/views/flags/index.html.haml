@@ -1,0 +1,21 @@
+.row-fluid
+  .span12
+    %h1=title('Moderation')
+.row-fluid
+  -if FlaggingCategory.all.present?
+    .span4
+      %ul.unstyled
+        -FlaggingCategory.all.each do |category|
+          %li
+            =link_to_self(category, :class => 'pull-left')
+            %span.badge.pull-left=category.flags.count
+          
+    .span8
+      =render('table')
+  -else
+    .span12
+      =render('table')
+    
+.row-fluid
+  .span12
+    =flag_link(Post.last)
