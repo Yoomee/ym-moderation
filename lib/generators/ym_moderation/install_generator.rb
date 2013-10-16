@@ -10,9 +10,16 @@ module YmModeration
       def manifest
         # examples ->
         # copy_file "models/page.rb", "app/models/page.rb"
-        # if should_add_abilities?('Page')
-        #   add_ability(:open, "can :show, Page, :draft => false")
-        # end
+        if should_add_abilities?('Flag')
+          add_ability(:admin, "can :manage, Flag")
+        end
+        if should_add_abilities?('Flagging')
+          add_ability(:open, "can :create, Flagging")
+          add_ability(:admin, "can :manage, Flagging")
+        end
+        if should_add_abilities?('FlaggingCategory')
+          add_ability(:admin, "can :manage, FlaggingCategory")
+        end
         # try_migration_template "migrations/create_pages.rb", "db/migrate/create_pages"
 
         copy_file "controllers/flaggings_controller.rb", "app/controllers/flaggings_controller.rb"
