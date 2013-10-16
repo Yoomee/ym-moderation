@@ -71,20 +71,20 @@ describe 'Flagging a post', :js => true do
       end
 
       it 'displays modal with flags#form' do
-        expect(page).to have_css("#Post#{post.id}")
+        expect(page).to have_css("#flag-post-#{post.id}")
       end
 
       context 'submitted flags#form' do
 
         before do
-          within("#Post#{post.id}") do
+          within("#flag-post-#{post.id}") do
             fill_in 'flagging_description', :with => 'This is inappropriate'
             click_on 'Report content'
           end
         end
 
         it 'displays thanks message and create flag' do
-          modal_body = find(:css, "#Post#{post.id} .modal-body")
+          modal_body = find(:css, "#flag-post-#{post.id} .modal-body")
           expect(modal_body).to have_content('Thanks for telling us!')
           expect(Flag.where(:resource_type => 'Post', :resource_id => post.id)).to exist
           flag = Flag.where(:resource_type => 'Post', :resource_id => post.id).first
