@@ -8,15 +8,13 @@ module YmModeration
       desc "Installs YmModeration."
 
       def manifest
-        # examples ->
-        # copy_file "models/page.rb", "app/models/page.rb"
         if should_add_abilities?('Flagging')
           add_ability(:open, "can :create, Flagging")
         end
-        # try_migration_template "migrations/create_pages.rb", "db/migrate/create_pages"
 
         copy_file "controllers/flags_controller.rb", "app/controllers/flags_controller.rb"
         copy_file "controllers/flaggings_controller.rb", "app/controllers/flaggings_controller.rb"
+        copy_file "controllers/flagging_categories_controller.rb", "app/controllers/flagging_categories_controller.rb"
         copy_file "models/flag.rb", "app/models/flag.rb"
         copy_file "models/flagging.rb", "app/models/flagging.rb"
         copy_file "models/flagging_category.rb", "app/models/flagging_category.rb"

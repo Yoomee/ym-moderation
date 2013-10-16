@@ -18,4 +18,6 @@
     
 .row-fluid
   .span12
-    =flag_link(Post.last)
+    =options_panel do
+      =link_to('Edit categories', flagging_categories_path)
+      =flag_link(Post.last)

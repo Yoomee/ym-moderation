@@ -1,0 +1,10 @@
+%h1=title('Moderation categories')
+
+-if @categories.empty?
+  %p There are no categories yet.
+-else
+  %ul.unstyled
+    -@categories.each do |category|
+      %li=category
+      
+=link_to('Add a category', new_flagging_category_path, :class => 'btn btn-primary mt-1')

@@ -1,0 +1,7 @@
+=semantic_form_for(@category) do |form|
+  =form.inputs do
+    =form.input :name
+    =form.input :color
+    =form.input :moderator_only, :label => 'Only allow admins to use this category when flagging content'
+  =form.actions do
+    =form.action :submit, :button_html => {:class => 'btn btn-primary'}
