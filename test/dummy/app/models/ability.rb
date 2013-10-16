@@ -11,6 +11,9 @@ class Ability
     if user.try(:admin?)
       can :manage, :all      
       # admin ability
+      can :manage, FlaggingCategory
+      can :manage, Flagging
+      can :manage, Flag
     elsif user
       # user ability
       can :manage, User, :id => user.id      
