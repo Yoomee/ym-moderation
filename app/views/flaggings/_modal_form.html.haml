@@ -1,4 +1,4 @@
-.flag-modal.modal.hide.fade{:id => "#{@flag.resource_type}#{@flag.resource_id}"}
+.flag-modal.modal.hide.fade{:id => flag_modal_id(@flag)}
   .modal-header
     %a.close{:data => {:dismiss => 'modal'}}
       %icon.icon-remove-sign

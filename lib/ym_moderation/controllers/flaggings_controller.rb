@@ -2,7 +2,6 @@ module YmModeration::FlaggingsController
 
   def self.included(base)
     base.before_filter :get_flag
-    base.authorize_resource
   end
 
   def create

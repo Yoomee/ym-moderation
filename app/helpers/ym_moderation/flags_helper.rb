@@ -7,4 +7,8 @@ module YmModeration::FlagsHelper
     link_to(link_text, url, options.merge(:remote => true))
   end
 
+  def flag_modal_id(flag)
+    "flag-#{@flag.resource_type.downcase}-#{@flag.resource_id}"
+  end
+
 end

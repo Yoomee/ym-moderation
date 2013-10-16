@@ -1,6 +1,6 @@
-if ($('#<%=@flag.resource_type%><%=@flag.resource_id%>').length) {
-  $('#<%=@flag.resource_type%><%=@flag.resource_id%>').replaceWith('<%=escape_javascript(render('flaggings/modal_form'))%>');
+if ($('#<%=flag_modal_id(@flag)%>').length) {
+  $('#<%=flag_modal_id(@flag)%>').replaceWith('<%=escape_javascript(render('flaggings/modal_form'))%>');
 } else {
   $('body').append('<%=escape_javascript(render('flaggings/modal_form'))%>');
 }
-$('#<%=@flag.resource_type%><%=@flag.resource_id%>').modal('show');
+$('#<%=flag_modal_id(@flag)%>').modal('show');
