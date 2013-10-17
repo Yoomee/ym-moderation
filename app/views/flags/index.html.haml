@@ -6,7 +6,10 @@
     .span3
       =render('flagging_categories/list')
     .span9
-      %h4 &nbsp;
+      -if current_page?(flags_path)
+        %h4 &nbsp;
+      -else
+        =link_to("&larr; Back to all flags".html_safe, flags_path)
       =render('table')
   -else
     .span12

@@ -5,12 +5,12 @@
         window.location = $(this).data('url')
 
 -if @flags.empty?
-  %p
+  %p.mt-2
     There are no unresolved items
     ="with this tag" if @category
     at the moment.
 -else
-  %table.table.table-hover.flag-table
+  %table.table.table-hover.flag-table.mt-2
     %tbody
       -@flags.each do |flag|
         %tr{:data => {:url => flag_path(flag)}}

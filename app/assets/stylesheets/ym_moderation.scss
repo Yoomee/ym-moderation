@@ -4,3 +4,9 @@
 body.action_index .flag-table tr {
   cursor: pointer;
 }
+ul.flagging-categories li a:hover span {
+  text-decoration: underline;
+}
+ul.flagging-categories li a:hover span.label {
+  text-decoration: none;
+}
