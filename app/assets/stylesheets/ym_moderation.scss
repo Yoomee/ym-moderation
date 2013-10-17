@@ -1,4 +1,6 @@
 .flag-table tr {
-  cursor: pointer;
   border: 1px solid $tableBorder;
+}
+body.action_index .flag-table tr {
+  cursor: pointer;
 }

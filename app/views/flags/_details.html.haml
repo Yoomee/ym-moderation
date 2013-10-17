@@ -15,14 +15,16 @@
         %ul.unstyled
           -@flag.flaggings.each do |flagging|
             %li.mb-1
-              Flagged as
-              %span.label{:style => "background-color: #{flagging.category.color};"}
-                =flagging.category
+              Flagged
+              -if flagging.category
+                as
+                %span.label{:style => "background-color: #{flagging.category.color};"}
+                  =flagging.category
               by
               -if flagging.user
                 =link_to_self(flagging.user)
               -else
-                =flagging.email ? mail_to(flagging.email) : 'anonymous'
+                =flagging.email.present? ? mail_to(flagging.email) : 'anonymous'
               %span.small-info-text
                 =time_ago_in_words(flagging.created_at)
                 ago

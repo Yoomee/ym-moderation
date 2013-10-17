@@ -2,15 +2,16 @@
   .modal-header
     %a.close{:data => {:dismiss => 'modal'}}
       %icon.icon-remove-sign
-    %h4 New flag
+    %h4 Report inappropriate content
   .modal-body
     =semantic_form_for(@flagging, :remote => true) do |form|
       =hidden_field_tag :resource_type, @flag.resource_type
       =hidden_field_tag :resource_id, @flag.resource_id
-      =form.input :category, :as => :select, :collection => FlaggingCategory.order(:name), :prompt => 'Please select...'
+      -if FlaggingCategory.count > 0
+        =form.input :category, :as => :select, :collection => FlaggingCategory.order(:name), :prompt => 'Please select...'
       =form.input :description, :label => 'Description of the problem'
       -if current_user
         =form.hidden_field :user_id, :value => current_user.id
       -else
-        =form.input :email, :hint => "if you'd like us to contact you about this issue"
+        =form.input :email, :label => 'Your email address', :hint => "If you'd like us to contact you about this issue"
       =form.action :submit, :label => 'Report content', :button_html => { :class => 'btn btn-primary' }
