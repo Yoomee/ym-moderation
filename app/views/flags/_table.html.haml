@@ -1,13 +1,27 @@
+-content_for(:head) do
+  :coffeescript
+    $ ->
+      $('.flag-table tr').click (event) ->
+        window.location = $(this).data('url')
+
 -if @flags.empty?
-  %p There are no unresolved items at the moment.
+  %p
+    There are no unresolved items
+    ="with this tag" if @category
+    at the moment.
 -else
-  %table.table.table-hover
+  %table.table.table-hover.flag-table
     %tbody
       -@flags.each do |flag|
-        %tr
+        %tr{:data => {:url => flag_path(flag)}}
           %td.span2
             %strong=flag.resource
           %td.span9
             %i=truncate(flag.resource_text, :length => 300)
+            %br
+            -flag.categories.each do |category|
+              %span.label.mv-1{:style => "background-color: #{category.color};"}
+                =category
           %td.span1.right
-            %span.badge=flag.flaggings.count
+            %i.icon-flag
+            =flag.flaggings.count

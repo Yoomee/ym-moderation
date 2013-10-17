@@ -1,0 +1,32 @@
+%table.table.flag-table.mt-2
+  %tbody
+    %tr
+      %td
+        %h4
+          =link_to_self(@flag.resource, :class => 'no-color', :target => '_blank')
+        %p
+          ="\"#{@flag.resource_text}\""
+          =link_to('View in context', @flag.resource, :class => 'ml-1', :target => '_blank')
+        =link_to('Mark as resolved', '#', :class => 'btn btn-primary mb-1')
+    %tr
+      %td
+        %h5
+          =pluralize(@flag.flaggings.count, 'Report')
+        %ul.unstyled
+          -@flag.flaggings.each do |flagging|
+            %li.mb-1
+              Flagged as
+              %span.label{:style => "background-color: #{flagging.category.color};"}
+                =flagging.category
+              by
+              -if flagging.user
+                =link_to_self(flagging.user)
+              -else
+                =flagging.email ? mail_to(flagging.email) : 'anonymous'
+              %span.small-info-text
+                =time_ago_in_words(flagging.created_at)
+                ago
+              -if flagging.description.present?
+                %br
+                &nbsp;
+                ="\"#{flagging.description}\""

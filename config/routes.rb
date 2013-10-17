@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :flags, :only =>[:index]
+  get '/moderation' => 'flags#index', :as => 'flags'
+  resources :flags, :only =>[:show]
   resources :flaggings, :only => [:new, :create]
-  resources :flagging_categories
+  resources :flagging_categories, :except => [:show] do
+    resources :flags, :only => [:index], :path => 'moderation'
+  end
 end

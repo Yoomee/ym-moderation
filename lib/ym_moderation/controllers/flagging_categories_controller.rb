@@ -25,6 +25,7 @@ module YmModeration::FlaggingCategoriesController
   def update
     if @category.update_attributes(params[:flagging_category])
       flash_notice(@category)
+      redirect_to flagging_categories_path
     else
       render :action => 'edit'
     end

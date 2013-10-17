@@ -1,0 +1,9 @@
+%h4 Categories
+%ul.unstyled
+  -FlaggingCategory.all.each do |category|
+    %li
+      =link_to(flagging_category_flags_path(category), :class => 'no-color p-1 block', :style => @category == category ? "background-color: #{category.color}; color: white;" : '') do
+        %span.pull-left=category
+        %span.label.pull-right{:style => @category == category ? "background-color: white; color: #{category.color};" : "background-color: #{category.color};"}
+          =category.flags.count
+        .clearfix

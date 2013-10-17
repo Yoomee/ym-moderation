@@ -5,6 +5,8 @@
 -else
   %ul.unstyled
     -@categories.each do |category|
-      %li=category
+      %li.flagging-category
+        %span.label{:style => "background-color: #{category.color};"} &nbsp;&nbsp;
+        =link_to(category, edit_flagging_category_path(category))
       
 =link_to('Add a category', new_flagging_category_path, :class => 'btn btn-primary mt-1')

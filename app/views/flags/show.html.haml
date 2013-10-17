@@ -6,11 +6,11 @@
     .span3
       =render('flagging_categories/list')
     .span9
-      %h4 &nbsp;
-      =render('table')
+      =link_to("&larr; Back to all flags".html_safe, flags_path)
+      =render('flags/details')
   -else
     .span12
-      =render('table')
+      =render('flags/details')
     
 .row-fluid
   .span12
