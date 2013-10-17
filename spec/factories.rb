@@ -2,6 +2,10 @@ require 'ffaker'
 
 FactoryGirl.define do
 
+  factory :flag do
+    resource :factory => :post
+  end
+
   factory :post do
     text Faker::Lorem.paragraphs(2)
   end
