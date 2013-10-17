@@ -6,6 +6,11 @@ module YmModeration::Flag
     base.has_many :flaggings, :dependent => :destroy
     base.has_many :categories, :through => :flaggings, :uniq => true
     base.validates :resource, :presence => true
+    base.send(:default_scope, base.where(:resolved_at => nil).order('updated_at DESC'))
+  end
+
+  def resolve!(current_user)
+    update_attributes(:resolved_at => Time.now, :resolved_by => current_user)
   end
 
   def resource_text

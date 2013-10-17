@@ -12,6 +12,11 @@ module YmModeration::FlagsController
     end
   end
 
+  def resolve
+    @flag.resolve!(current_user)
+    redirect_to flags_path
+  end
+
   def show
   end
 

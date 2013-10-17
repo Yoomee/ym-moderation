@@ -7,7 +7,7 @@
         %p
           ="\"#{@flag.resource_text}\""
           =link_to('View in context', @flag.resource, :class => 'ml-1', :target => '_blank')
-        =link_to('Mark as resolved', '#', :class => 'btn btn-primary mb-1')
+        =link_to('Mark as resolved', resolve_flag_path(@flag), :method => :put, :class => 'btn btn-primary mb-1')
     %tr
       %td
         %h5
