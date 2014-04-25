@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara', '~> 1.1.0'
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'geminabox'
-  s.add_development_dependency 'ym_tools', '~> 1.0.0'
+  s.add_development_dependency 'ym_tools', '~> 0.1.14'
   s.add_development_dependency 'listen', '~> 1.3.1'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'capybara-webkit'
